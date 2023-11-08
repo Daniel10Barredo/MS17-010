@@ -12,8 +12,9 @@ Note:
 - all SMB request parameter is copied from capture network traffic
 '''
 
-USERNAME = ''
-PASSWORD = ''
+USERNAME = ''		#Edit username
+PASSWORD = ''		#Edit password
+DOMAIN = ''		#Edit domain
 
 if len(sys.argv) != 3:
 	print("{} <ip> <pipe_name>".format(sys.argv[0]))
@@ -26,7 +27,7 @@ conn = MYSMB(target)
 
 # our buffer size is 4356 bytes
 # transaction with large reply will be splitted to multiple response
-conn.login(USERNAME, PASSWORD, maxBufferSize=4356)
+conn.login(USERNAME, PASSWORD, DOMAIN, maxBufferSize=4356)
 
 tid = conn.tree_connect_andx('\\\\'+target+'\\'+'IPC$')
 conn.set_default_tid(tid)

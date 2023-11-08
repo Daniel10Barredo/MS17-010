@@ -11,8 +11,11 @@ Script for
 - find accessible named pipe
 '''
 
-USERNAME = ''
-PASSWORD = ''
+
+USERNAME = ''		#Edit username
+PASSWORD = ''		#Edit password
+DOMAIN = ''		#Edit domain
+
 
 NDR64Syntax = ('71710533-BEBA-4937-8319-B5DBEF9CCC36', '1.0')
 
@@ -47,7 +50,7 @@ except:
 print('Trying to connect to %s:%d' % (target, port))
 conn = MYSMB(target, port)
 try:
-	conn.login(USERNAME, PASSWORD)
+	conn.login(USERNAME, PASSWORD, DOMAIN, maxBufferSize=4356)
 except smb.SessionError as e:
 	print('Login failed: ' + nt_errors.ERROR_MESSAGES[e.error_code][0])
 	sys.exit()
